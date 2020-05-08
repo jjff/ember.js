@@ -102,10 +102,6 @@ export default function transformInElement(env: ASTPluginEnvironment): ASTPlugin
             }
           });
 
-          let guid = b.literal('StringLiteral', `%cursor:${cursorCount++}%`);
-          let guidPair = b.pair('guid', guid);
-          hash.pairs.unshift(guidPair);
-
           // Maintain compatibility with previous -in-element behavior (defaults to append, not clear)
           if (needsInsertBefore) {
             let nullLiteral = b.literal('NullLiteral', null);
